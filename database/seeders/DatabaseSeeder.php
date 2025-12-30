@@ -10,6 +10,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Criar usuário administrador
+        $this->call(UserSeeder::class);
+
         // Criar Plano Clássico
         Plano::create([
             'nome' => 'Plano Clássico',
