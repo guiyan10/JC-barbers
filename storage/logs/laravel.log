@@ -3579,3 +3579,75 @@ Did you mean one of these?
 #11 C:\\Users\\user\\JC-barbers\\artisan(11): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
 #12 {main}
 "} 
+[2025-12-30 23:51:00] local.ERROR: Type of App\Filament\Pages\Dashboard::$navigationIcon must be BackedEnum|string|null (as in class Filament\Pages\Page) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Type of App\\Filament\\Pages\\Dashboard::$navigationIcon must be BackedEnum|string|null (as in class Filament\\Pages\\Page) at C:\\Users\\user\\JC-barbers\\app\\Filament\\Pages\\Dashboard.php:7)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Type of App\\\\\\\\F...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-30 23:51:07] local.ERROR: Cannot redeclare non static Filament\Widgets\ChartWidget::$heading as static App\Filament\Widgets\AtendimentosChartWidget::$heading {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare non static Filament\\Widgets\\ChartWidget::$heading as static App\\Filament\\Widgets\\AtendimentosChartWidget::$heading at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:9)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot redecla...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-30 23:51:15] local.ERROR: Cannot redeclare non static Filament\Widgets\ChartWidget::$heading as static App\Filament\Widgets\AtendimentosChartWidget::$heading {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare non static Filament\\Widgets\\ChartWidget::$heading as static App\\Filament\\Widgets\\AtendimentosChartWidget::$heading at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:9)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot redecla...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-30 23:51:16] local.ERROR: Cannot redeclare non static Filament\Widgets\ChartWidget::$heading as static App\Filament\Widgets\AtendimentosChartWidget::$heading {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare non static Filament\\Widgets\\ChartWidget::$heading as static App\\Filament\\Widgets\\AtendimentosChartWidget::$heading at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:9)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot redecla...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-30 23:59:33] local.ERROR: Cannot use array as default value for property App\Filament\Widgets\AtendimentosChartWidget::$columnSpan of type ?int {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use array as default value for property App\\Filament\\Widgets\\AtendimentosChartWidget::$columnSpan of type ?int at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:13)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot use arr...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-30 23:59:42] local.ERROR: Cannot use array as default value for property App\Filament\Widgets\AtendimentosChartWidget::$columnSpan of type ?int {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use array as default value for property App\\Filament\\Widgets\\AtendimentosChartWidget::$columnSpan of type ?int at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:13)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot use arr...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-31 00:00:05] local.ERROR: Cannot use array as default value for property App\Filament\Widgets\AtendimentosChartWidget::$columnSpan of type ?int {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use array as default value for property App\\Filament\\Widgets\\AtendimentosChartWidget::$columnSpan of type ?int at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:13)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot use arr...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-31 00:00:12] local.ERROR: Cannot use array as default value for property App\Filament\Widgets\AtendimentosChartWidget::$columnSpan of type ?int {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use array as default value for property App\\Filament\\Widgets\\AtendimentosChartWidget::$columnSpan of type ?int at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\AtendimentosChartWidget.php:13)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot use arr...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 
+[2025-12-31 00:00:23] local.ERROR: Cannot use array as default value for property App\Filament\Widgets\StatusAgendamentosWidget::$columnSpan of type ?int {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot use array as default value for property App\\Filament\\Widgets\\StatusAgendamentosWidget::$columnSpan of type ?int at C:\\Users\\user\\JC-barbers\\app\\Filament\\Widgets\\StatusAgendamentosWidget.php:14)
+[stacktrace]
+#0 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(247): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Cannot use arr...', code: '0', error: '['type' => 64, ...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(234): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 64, ...', traceOffset: '0')
+#2 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(258): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\Users\\user\\JC-barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:257-259}()
+#4 {main}
+"} 

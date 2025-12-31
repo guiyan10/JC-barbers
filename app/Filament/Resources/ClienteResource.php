@@ -45,18 +45,25 @@ class ClienteResource extends Resource
                     ->schema([
                         TextInput::make('nome')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->maxWidth('md'),
                         TextInput::make('telefone')
                             ->required()
                             ->unique(ignoreRecord: true)
                             ->mask('(99) 99999-9999')
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->maxWidth('md'),
                         TextInput::make('email')
                             ->email()
-                            ->maxLength(255),
-                        DatePicker::make('data_nascimento'),
+                            ->maxLength(255)
+                            ->maxWidth('md'),
+                        DatePicker::make('data_nascimento')
+                            ->maxWidth('md'),
                     ])
-                    ->columns(2),
+                    ->columns([
+                        'default' => 1,
+                        'sm' => 2,
+                    ]),
                 
                 Section::make('Plano')
                     ->schema([
@@ -66,6 +73,7 @@ class ClienteResource extends Resource
                             ->searchable()
                             ->preload()
                             ->live()
+                            ->maxWidth('md')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 if ($state) {
                                     $plano = Plano::find($state);
@@ -76,11 +84,17 @@ class ClienteResource extends Resource
                                 }
                             }),
                         DatePicker::make('data_inicio_plano')
-                            ->label('Data Início do Plano'),
+                            ->label('Data Início do Plano')
+                            ->maxWidth('md'),
                         DatePicker::make('data_fim_plano')
-                            ->label('Data Fim do Plano'),
+                            ->label('Data Fim do Plano')
+                            ->maxWidth('md'),
                     ])
-                    ->columns(3)
+                    ->columns([
+                        'default' => 1,
+                        'sm' => 2,
+                        'md' => 3,
+                    ])
                     ->collapsible(),
                 
                 Section::make('Informações Adicionais')

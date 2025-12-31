@@ -53,6 +53,10 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
             ])
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::STYLES_AFTER,
+                fn () => view('filament.custom-styles')
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

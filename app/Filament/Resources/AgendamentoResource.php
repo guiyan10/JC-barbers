@@ -50,6 +50,7 @@ class AgendamentoResource extends Resource
                             ->searchable(['nome', 'telefone'])
                             ->preload()
                             ->required()
+                            ->maxWidth('md')
                             ->createOptionForm([
                                 TextInput::make('nome')
                                     ->required()
@@ -68,15 +69,21 @@ class AgendamentoResource extends Resource
                             ->relationship('servico', 'nome', fn (Builder $query) => $query->where('ativo', true))
                             ->searchable()
                             ->preload()
-                            ->required(),
+                            ->required()
+                            ->maxWidth('md'),
                         DateTimePicker::make('data_hora')
                             ->label('Data e Hora')
                             ->required()
                             ->native(false)
                             ->displayFormat('d/m/Y H:i')
-                            ->minDate(now()),
+                            ->minDate(now())
+                            ->maxWidth('md'),
                     ])
-                    ->columns(3),
+                    ->columns([
+                        'default' => 1,
+                        'sm' => 2,
+                        'md' => 3,
+                    ]),
                 
                 Section::make('Status do Atendimento')
                     ->schema([
@@ -88,17 +95,24 @@ class AgendamentoResource extends Resource
                             ])
                             ->default(0)
                             ->required()
+                            ->maxWidth('md')
                             ->disabled(fn ($record) => $record && $record->status === 2),
                         DateTimePicker::make('hora_inicio')
                             ->label('Hora Início')
                             ->disabled()
+                            ->maxWidth('md')
                             ->visible(fn ($get) => $get('status') >= 1),
                         DateTimePicker::make('hora_fim')
                             ->label('Hora Fim')
                             ->disabled()
+                            ->maxWidth('md')
                             ->visible(fn ($get) => $get('status') == 2),
                     ])
-                    ->columns(3)
+                    ->columns([
+                        'default' => 1,
+                        'sm' => 2,
+                        'md' => 3,
+                    ])
                     ->collapsible(),
                 
                 Section::make('Observações')

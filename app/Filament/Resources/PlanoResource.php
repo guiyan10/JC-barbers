@@ -37,20 +37,29 @@ class PlanoResource extends Resource
             ->components([
                 TextInput::make('nome')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->maxWidth('md'),
                 Textarea::make('descricao')
-                    ->rows(3),
+                    ->rows(3)
+                    ->maxWidth('md'),
                 TextInput::make('valor')
                     ->label('Valor (R$)')
                     ->numeric()
                     ->prefix('R$')
-                    ->required(),
+                    ->required()
+                    ->maxWidth('md'),
                 TextInput::make('limite_mensal')
                     ->label('Limite Mensal (cortes)')
                     ->numeric()
-                    ->required(),
+                    ->required()
+                    ->maxWidth('md'),
                 Toggle::make('ativo')
-                    ->default(true),
+                    ->default(true)
+                    ->maxWidth('md'),
+            ])
+            ->columns([
+                'default' => 1,
+                'sm' => 2,
             ]);
     }
 
