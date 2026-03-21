@@ -4199,3 +4199,52 @@ Did you mean one of these?
 #69 C:\\Users\\guiya\\OneDrive\\Área de Trabalho\\Projetos\\JC barbers\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\Users\\\\guiya\\\\...')
 #70 {main}
 "} 
+[2026-03-21 07:26:56] local.DEBUG: From: hello@example.com
+To: guiyan.leite@gmail.com
+Subject: Confirmacao de agendamento - JC Barber
+MIME-Version: 1.0
+Date: Sat, 21 Mar 2026 07:26:56 +0000
+Message-ID: <3cc661e9950db0252e84219911fc1d8f@example.com>
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmacao de Agendamento</title>
+</head>
+<body style="font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 24px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 640px; margin: 0 auto; background: #ffffff; border-radius: 10px; border: 1px solid #e5e7eb;">
+        <tr>
+            <td style="padding: 24px;">
+                <h2 style="margin: 0 0 12px; color: #111827;">Agendamento confirmado ✅</h2>
+                <p style="margin: 0 0 16px; color: #374151;">
+                    Ola, guilherme yan! Seu horario foi agendado com sucesso na JC Barber.
+                </p>
+
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 8px 0; color: #6b7280; width: 180px;">Servico</td>
+                        <td style="padding: 8px 0; color: #111827;"><strong>CORTE PIKA</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #6b7280;">Data e horario</td>
+                        <td style="padding: 8px 0; color: #111827;"><strong>21/03/2026 as 12:30</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 0; color: #6b7280;">Telefone</td>
+                        <td style="padding: 8px 0; color: #111827;">(12) 99129-3155</td>
+                    </tr>
+                </table>
+
+                <p style="margin: 20px 0 0; color: #374151;">
+                    Em caso de imprevistos, entre em contato para remarcar.
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+  
