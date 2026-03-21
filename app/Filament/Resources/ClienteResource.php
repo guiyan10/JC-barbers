@@ -21,6 +21,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
 
 class ClienteResource extends Resource
 {
@@ -74,20 +75,52 @@ class ClienteResource extends Resource
                             ->preload()
                             ->live()
                             ->maxWidth('md')
-                            ->afterStateUpdated(function ($state, callable $set) {
+                            ->afterStateUpdated(function ($state, callable $get, callable $set) {
                                 if ($state) {
                                     $plano = Plano::find($state);
                                     if ($plano) {
-                                        $set('data_inicio_plano', now());
-                                        $set('data_fim_plano', now()->addMonth());
+                                        $duracaoDias = (int) ($plano->duracao_dias ?? 30);
+                                        $inicioAtual = $get('data_inicio_plano');
+                                        $inicio = $inicioAtual ? Carbon::parse($inicioAtual) : Carbon::today();
+
+                                        if (! $inicioAtual) {
+                                            $set('data_inicio_plano', $inicio->toDateString());
+                                        }
+
+                                        $set('data_fim_plano', $inicio->copy()->addDays($duracaoDias)->toDateString());
+                                        $set('data_pagamento_previsto', $inicio->copy()->addDays($duracaoDias)->toDateString());
                                     }
                                 }
                             }),
                         DatePicker::make('data_inicio_plano')
                             ->label('Data Início do Plano')
+                            ->live()
+                            ->afterStateUpdated(function ($state, callable $get, callable $set) {
+                                $planoId = $get('plano_id');
+
+                                if (! $state || ! $planoId) {
+                                    return;
+                                }
+
+                                $plano = Plano::find($planoId);
+
+                                if (! $plano) {
+                                    return;
+                                }
+
+                                $inicio = Carbon::parse($state);
+                                $duracaoDias = (int) ($plano->duracao_dias ?? 30);
+
+                                $set('data_fim_plano', $inicio->copy()->addDays($duracaoDias)->toDateString());
+                                $set('data_pagamento_previsto', $inicio->copy()->addDays($duracaoDias)->toDateString());
+                            })
                             ->maxWidth('md'),
-                        DatePicker::make('data_fim_plano')
-                            ->label('Data Fim do Plano')
+                        TextInput::make('dia_pagamento')
+                            ->label('Dia de Pagamento')
+                            ->numeric()
+                            ->minValue(1)
+                            ->maxValue(31)
+                            ->helperText('Use o dia do mês para controle (1 a 31).')
                             ->maxWidth('md'),
                     ])
                     ->columns([
@@ -122,6 +155,11 @@ class ClienteResource extends Resource
                     ->default('Não possui')
                     ->badge()
                     ->color(fn ($record) => $record->plano ? 'success' : 'gray'),
+                Tables\Columns\TextColumn::make('data_inicio_plano')
+                    ->label('Início do Plano')
+                    ->date('d/m/Y')
+                    ->placeholder('-')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('data_ultima_visita')
                     ->label('Última Visita')
                     ->getStateUsing(function (Cliente $record) {
@@ -138,6 +176,39 @@ class ClienteResource extends Resource
                         $record->resetarContadorSeNecessario();
                         return "{$record->cortes_utilizados_mes}/{$record->plano->limite_mensal}";
                     }),
+                Tables\Columns\TextColumn::make('data_fim_plano')
+                    ->label('Vencimento do Plano')
+                    ->date('d/m/Y')
+                    ->placeholder('-')
+                    ->badge()
+                    ->color(function (Cliente $record) {
+                        if (! $record->data_fim_plano) {
+                            return 'gray';
+                        }
+
+                        return Carbon::today()->lte(Carbon::parse($record->data_fim_plano))
+                            ? 'success'
+                            : 'danger';
+                    }),
+                Tables\Columns\TextColumn::make('data_pagamento_previsto')
+                    ->label('Pagamento Previsto')
+                    ->date('d/m/Y')
+                    ->placeholder('-')
+                    ->badge()
+                    ->color(function (Cliente $record) {
+                        if (! $record->data_pagamento_previsto) {
+                            return 'gray';
+                        }
+
+                        return Carbon::today()->lte(Carbon::parse($record->data_pagamento_previsto))
+                            ? 'info'
+                            : 'danger';
+                    }),
+                Tables\Columns\TextColumn::make('dia_pagamento')
+                    ->label('Dia Pgto')
+                    ->placeholder('-')
+                    ->badge()
+                    ->color('warning'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('plano_id')
@@ -150,6 +221,24 @@ class ClienteResource extends Resource
                     ->icon('heroicon-o-calendar')
                     ->color('success')
                     ->url(fn (Cliente $record) => AgendamentoResource::getUrl('create', ['cliente_id' => $record->id])),
+                Action::make('marcar_pagamento_plano')
+                    ->label('Marcar Pagamento')
+                    ->icon('heroicon-o-banknotes')
+                    ->color('warning')
+                    ->visible(fn (Cliente $record) => (bool) $record->plano_id)
+                    ->requiresConfirmation()
+                    ->modalHeading('Confirmar pagamento do plano')
+                    ->modalDescription('Ao confirmar, o vencimento será renovado somando a duração do plano.')
+                    ->action(function (Cliente $record) {
+                        $record->renovarPlano();
+                        $record->refresh();
+
+                        \Filament\Notifications\Notification::make()
+                            ->success()
+                            ->title('Pagamento registrado')
+                            ->body('Novo vencimento: ' . optional($record->data_fim_plano)->format('d/m/Y'))
+                            ->send();
+                    }),
                 EditAction::make(),
                 DeleteAction::make(),
             ])

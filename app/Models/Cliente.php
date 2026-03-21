@@ -21,6 +21,9 @@ class Cliente extends Model
         'plano_id',
         'data_inicio_plano',
         'data_fim_plano',
+        'data_ultimo_pagamento',
+        'data_pagamento_previsto',
+        'dia_pagamento',
         'cortes_utilizados_mes',
         'ultimo_reset_contador',
     ];
@@ -29,6 +32,9 @@ class Cliente extends Model
         'data_nascimento' => 'date',
         'data_inicio_plano' => 'date',
         'data_fim_plano' => 'date',
+        'data_ultimo_pagamento' => 'date',
+        'data_pagamento_previsto' => 'date',
+        'dia_pagamento' => 'integer',
         'ultimo_reset_contador' => 'date',
         'cortes_utilizados_mes' => 'integer',
     ];
@@ -79,7 +85,7 @@ class Cliente extends Model
     public function resetarContadorSeNecessario(): void
     {
         if (!$this->ultimo_reset_contador) {
-            $this->ultimo_reset_contador = Carbon::today();
+            $this->setAttribute('ultimo_reset_contador', Carbon::today());
             $this->cortes_utilizados_mes = 0;
             $this->save();
             return;
@@ -91,7 +97,7 @@ class Cliente extends Model
         // Se mudou o mês, reseta o contador
         if ($ultimoReset->month !== $hoje->month || $ultimoReset->year !== $hoje->year) {
             $this->cortes_utilizados_mes = 0;
-            $this->ultimo_reset_contador = $hoje;
+            $this->setAttribute('ultimo_reset_contador', $hoje);
             $this->save();
         }
     }
@@ -103,6 +109,36 @@ class Cliente extends Model
     {
         $this->resetarContadorSeNecessario();
         $this->increment('cortes_utilizados_mes');
+    }
+
+    /**
+     * Renova o plano com base na duração configurada.
+     * Se o plano ainda estiver vigente, soma ao vencimento atual.
+     * Se estiver vencido, reinicia a partir da data de pagamento.
+     */
+    public function renovarPlano(?Carbon $dataPagamento = null): void
+    {
+        if (! $this->plano_id || ! $this->plano) {
+            return;
+        }
+
+        $dataPagamento ??= Carbon::today();
+        $duracaoDias = max(1, (int) ($this->plano->duracao_dias ?? 30));
+
+        $vencimentoAtual = $this->data_fim_plano ? Carbon::parse($this->data_fim_plano) : null;
+        $base = ($vencimentoAtual && $vencimentoAtual->gte($dataPagamento))
+            ? $vencimentoAtual
+            : $dataPagamento;
+
+        if (! $vencimentoAtual || $vencimentoAtual->lt($dataPagamento)) {
+            $this->setAttribute('data_inicio_plano', $dataPagamento);
+        }
+
+        $this->setAttribute('data_fim_plano', $base->copy()->addDays($duracaoDias));
+        $this->setAttribute('data_ultimo_pagamento', $dataPagamento);
+        $this->setAttribute('data_pagamento_previsto', $dataPagamento->copy()->addDays($duracaoDias));
+        $this->setAttribute('dia_pagamento', (int) $dataPagamento->day);
+        $this->save();
     }
 
     /**

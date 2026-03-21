@@ -15,12 +15,14 @@ class Plano extends Model
         'descricao',
         'valor',
         'limite_mensal',
+        'duracao_dias',
         'ativo',
     ];
 
     protected $casts = [
         'valor' => 'decimal:2',
         'limite_mensal' => 'integer',
+        'duracao_dias' => 'integer',
         'ativo' => 'boolean',
     ];
 

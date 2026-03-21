@@ -53,6 +53,13 @@ class PlanoResource extends Resource
                     ->numeric()
                     ->required()
                     ->maxWidth('md'),
+                TextInput::make('duracao_dias')
+                    ->label('Duração do Plano (dias)')
+                    ->numeric()
+                    ->default(30)
+                    ->required()
+                    ->minValue(1)
+                    ->maxWidth('md'),
                 Toggle::make('ativo')
                     ->default(true)
                     ->maxWidth('md'),
@@ -76,6 +83,9 @@ class PlanoResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('limite_mensal')
                     ->label('Limite Mensal')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('duracao_dias')
+                    ->label('Duração (dias)')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('ativo')
                     ->boolean(),
