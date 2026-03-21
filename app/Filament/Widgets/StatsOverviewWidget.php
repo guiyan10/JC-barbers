@@ -13,13 +13,20 @@ class StatsOverviewWidget extends BaseWidget
 {
     protected static ?int $sort = 1;
 
+    protected int | array | null $columns = [
+        'default' => 1,
+        'sm' => 2,
+        'xl' => 4,
+    ];
+
     public ?string $periodo = 'month';
 
     public function getColumnSpan(): int | array
     {
         return [
+            'default' => 1,
             'md' => 2,
-            'xl' => 1,
+            'xl' => 3,
         ];
     }
 

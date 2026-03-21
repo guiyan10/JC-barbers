@@ -11,6 +11,11 @@ class StatusAgendamentosWidget extends BaseWidget
 {
     protected static ?int $sort = 4;
 
+    protected int | array | null $columns = [
+        'default' => 1,
+        'lg' => 3,
+    ];
+
     public function getHeading(): string
     {
         return 'Status dos Agendamentos de Hoje';
@@ -19,8 +24,9 @@ class StatusAgendamentosWidget extends BaseWidget
     public function getColumnSpan(): int | array
     {
         return [
+            'default' => 1,
             'md' => 2,
-            'xl' => 1,
+            'xl' => 3,
         ];
     }
 

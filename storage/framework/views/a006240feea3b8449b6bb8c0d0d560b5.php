@@ -17,3 +17,4 @@
     }
 </style>
 
+<?php /**PATH C:\Users\guiya\OneDrive\Área de Trabalho\Projetos\JC barbers\resources\views/filament/custom-styles.blade.php ENDPATH**/ ?>

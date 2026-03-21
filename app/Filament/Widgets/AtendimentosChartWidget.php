@@ -18,7 +18,7 @@ class AtendimentosChartWidget extends ChartWidget
     public function getColumnSpan(): int | array
     {
         return [
-            'md' => 2,
+            'md' => 1,
             'xl' => 1,
         ];
     }
