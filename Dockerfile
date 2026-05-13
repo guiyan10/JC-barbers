@@ -27,7 +27,6 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
         gd \
         intl \
         zip \
-        tokenizer \
         xml \
         dom \
         fileinfo
