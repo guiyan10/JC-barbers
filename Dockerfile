@@ -1,35 +1,10 @@
 FROM php:8.2-cli-alpine
 
-RUN apk add --no-cache \
-    git \
-    curl \
-    libpng-dev \
-    oniguruma-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    icu-dev \
-    libzip-dev \
-    freetype-dev \
-    libjpeg-turbo-dev \
-    postgresql-dev \
-    bash
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install \
-        pdo \
-        pdo_pgsql \
-        pgsql \
-        mbstring \
-        exif \
-        pcntl \
-        bcmath \
-        gd \
-        intl \
-        zip \
-        xml \
-        dom \
-        fileinfo
+RUN install-php-extensions pdo_pgsql pgsql intl zip gd mbstring exif pcntl bcmath xml dom fileinfo
+
+RUN apk add --no-cache git
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
