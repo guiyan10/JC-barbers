@@ -1,10 +1,10 @@
-FROM php:8.2-cli-alpine
+FROM php:8.2-cli
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
 RUN install-php-extensions pdo_pgsql pgsql intl zip gd mbstring exif pcntl bcmath xml dom fileinfo
 
-RUN apk add --no-cache git
+RUN apt-get update && apt-get install -y --no-install-recommends git unzip && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
