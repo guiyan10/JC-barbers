@@ -1,4 +1,4 @@
-FROM serversideup/php:8.2-cli
+FROM serversideup/php:8.3-cli
 
 WORKDIR /var/www/html
 
