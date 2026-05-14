@@ -1,5 +1,9 @@
 FROM serversideup/php:8.3-cli
 
+USER root
+
+RUN install-php-extensions intl
+
 WORKDIR /var/www/html
 
 COPY --chown=www-data:www-data . .
