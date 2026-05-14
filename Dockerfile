@@ -1,19 +1,8 @@
-FROM php:8.2-cli
-
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git unzip libpq-dev libicu-dev libzip-dev libpng-dev \
-    libjpeg62-turbo-dev libfreetype6-dev libwebp-dev libexif-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN install-php-extensions pdo_pgsql intl zip gd bcmath pcntl exif
-
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+FROM serversideup/php:8.2-cli
 
 WORKDIR /var/www/html
 
-COPY . .
+COPY --chown=www-data:www-data . .
 
 RUN composer install --optimize-autoloader --no-dev --no-interaction
 
