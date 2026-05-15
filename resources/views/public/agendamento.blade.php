@@ -337,7 +337,7 @@
             <div class="grid">
                 <div class="field">
                     <label for="nome">Nome completo</label>
-                    <input id="nome" name="nome" type="text" required value="{{ old('nome') }}" placeholder="Ex.: Angelo Rocha">
+                    <input id="nome" name="nome" type="text" required value="{{ old('nome') }}" placeholder="Ex.: Guilherme Almeida">
                     @error('nome')<div class="error">{{ $message }}</div>@enderror
                 </div>
 
