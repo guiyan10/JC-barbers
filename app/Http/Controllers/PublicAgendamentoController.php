@@ -6,6 +6,7 @@ use App\Mail\AgendamentoConfirmadoMail;
 use App\Models\Agendamento;
 use App\Models\Cliente;
 use App\Models\Servico;
+use App\Services\WhatsAppService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
@@ -120,6 +121,25 @@ class PublicAgendamentoController extends Controller
                     'erro' => $exception->getMessage(),
                 ]);
             }
+        }
+
+        try {
+            $servico = Servico::find($validated['servico_id']);
+            $mensagem = "🔔 *Novo Agendamento - JC Barber!*\n\n"
+                . "👤 *Cliente:* {$cliente->nome}\n"
+                . "📱 *Telefone:* {$cliente->telefone}\n"
+                . "✂️ *Serviço:* {$servico->nome}\n"
+                . "📅 *Data/Hora:* " . $dataHora->format('d/m/Y \à\s H:i') . "\n"
+                . (filled($validated['observacoes'] ?? null)
+                    ? "💬 *Obs:* {$validated['observacoes']}\n"
+                    : '');
+
+            app(WhatsAppService::class)->notificarBarbearia($mensagem);
+        } catch (Throwable $exception) {
+            Log::warning('Falha ao enviar WhatsApp de agendamento.', [
+                'agendamento_id' => $agendamento->id,
+                'erro' => $exception->getMessage(),
+            ]);
         }
 
         return redirect()
